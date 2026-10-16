@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="es" data-theme="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Cristian Luque Núñez · Desarrollador Backend</title>
+  <meta name="description" content="Web personal de Cristian Luque Núñez, desarrollador backend senior con experiencia en PHP, Symfony y Drupal. Trayectoria, stack técnico y contacto." />
+  <meta name="author" content="Cristian Luque Núñez" />
+  <meta name="theme-color" content="#0b0f14" />
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="profile" />
+  <meta property="og:locale" content="es_ES" />
+  <meta property="og:title" content="Cristian Luque Núñez · Desarrollador Backend" />
+  <meta property="og:description" content="Desarrollador Backend · Tech Lead · Project Manager. Trayectoria, stack técnico y contacto." />
+  <meta property="og:image" content="img/foto-perfil-400.jpg" />
+
+  <!-- Favicon con monograma -->
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%230b0f14'/%3E%3Ctext x='32' y='43' font-family='monospace' font-size='30' font-weight='700' fill='%2334d399' text-anchor='middle'%3ECL%3C/text%3E%3C/svg%3E" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="css/styles.css" />
+  <script>document.documentElement.classList.add("js");</script>
+</head>
+<body>
+  <a class="skip-link" href="#contenido">Saltar al contenido</a>
+
+  <header class="site-header" id="top">
+    <nav class="nav" aria-label="Navegación principal">
+      <a class="nav__brand" href="#top">
+        <span class="nav__mark" aria-hidden="true">CL</span>
+        <span class="nav__name">Cristian Luque</span>
+      </a>
+
+      <button class="nav__toggle" id="navToggle" aria-expanded="false" aria-controls="navMenu" aria-label="Abrir menú">
+        <span class="nav__toggle-bars" aria-hidden="true"></span>
+      </button>
+
+      <ul class="nav__menu" id="navMenu">
+        <li><a href="#sobre-mi">Sobre mí</a></li>
+        <li><a href="#contacto">Contacto</a></li>
+        <li><a href="#experiencia">Experiencia</a></li>
+        <li><a href="#stack">Stack</a></li>
+        <li><a href="#formacion">Formación</a></li>
+        <li>
+          <button class="theme-toggle" id="themeToggle" aria-label="Cambiar tema" title="Cambiar tema">
+            <svg class="theme-toggle__icon theme-toggle__icon--moon" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M21.64 13a1 1 0 0 0-1.05-.14a8 8 0 0 1-3.37.73a8.15 8.15 0 0 1-8.14-8.1a8.59 8.59 0 0 1 .25-2A1 1 0 0 0 8 2.36a10.14 10.14 0 1 0 14 11.69a1 1 0 0 0-.36-1.05Z"/></svg>
+            <svg class="theme-toggle__icon theme-toggle__icon--sun" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 17a5 5 0 1 0 0-10a5 5 0 0 0 0 10Zm0 2a1 1 0 0 1 1 1v1a1 1 0 1 1-2 0v-1a1 1 0 0 1 1-1Zm0-18a1 1 0 0 1 1 1v1a1 1 0 1 1-2 0V2a1 1 0 0 1 1-1Zm10 10a1 1 0 0 1-1 1h-1a1 1 0 1 1 0-2h1a1 1 0 0 1 1 1ZM4 12a1 1 0 0 1-1 1H2a1 1 0 1 1 0-2h1a1 1 0 0 1 1 1Zm14.66-6.66a1 1 0 0 1 0 1.41l-.71.71a1 1 0 1 1-1.41-1.41l.7-.71a1 1 0 0 1 1.42 0ZM7.46 16.54a1 1 0 0 1 0 1.41l-.7.71a1 1 0 0 1-1.42-1.41l.71-.71a1 1 0 0 1 1.41 0Zm11.2 2.12a1 1 0 0 1-1.41 0l-.71-.71a1 1 0 0 1 1.41-1.41l.71.7a1 1 0 0 1 0 1.42ZM7.46 7.46a1 1 0 0 1-1.41 0l-.71-.7a1 1 0 0 1 1.42-1.42l.7.71a1 1 0 0 1 0 1.41Z"/></svg>
+          </button>
+        </li>
+      </ul>
+    </nav>
+  </header>
+
+  <main id="contenido">
+    <!-- HERO -->
+    <section class="hero" aria-labelledby="hero-title">
+      <div class="hero__inner">
+        <div class="hero__text" data-reveal>
+          <h1 class="visually-hidden">Cristian Luque Núñez, desarrollador backend</h1>
+          <p class="hero__eyebrow">Hola, encantado</p>
+          <p class="hero__role" id="hero-title">Desarrollador Backend · Tech Lead · Project Manager</p>
+          <p class="hero__lead">
+            Llevo desde 2016 construyendo y manteniendo aplicaciones web del lado del servidor.
+            Trabajo con PHP y Symfony, me muevo bien con bases de datos y cada vez me apoyo más
+            en herramientas de IA en el día a día.
+          </p>
+          <div class="hero__actions">
+            <a class="btn btn--primary" href="#contacto">Contactar</a>
+            <a class="btn btn--ghost" href="#experiencia">Ver mi trayectoria</a>
+          </div>
+          <p class="hero__meta">
+            <span class="dot" aria-hidden="true"></span> Madrid, España
+          </p>
+        </div>
+
+        <div class="hero__photo" data-reveal>
+          <div class="hero__photo-frame">
+            <picture>
+              <source srcset="img/foto-perfil.webp" type="image/webp" />
+              <img src="img/foto-perfil.jpg" width="600" height="600"
+                   alt="Retrato de Cristian Luque Núñez" loading="eager" decoding="async" />
+            </picture>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SOBRE MI -->
+    <section class="section" id="sobre-mi" aria-labelledby="sobre-mi-title">
+      <div class="section__head" data-reveal>
+        <span class="section__index">01</span>
+        <h2 class="section__title" id="sobre-mi-title">Sobre mí</h2>
+      </div>
+      <div class="section__body" data-reveal>
+        <p>
+          Soy <strong>desarrollador backend</strong> y llevo desde 2016 construyendo webs y aplicaciones.
+          Lo que más me gusta del oficio es resolver problemas: entender qué necesita alguien y dar
+          con la forma más limpia de llevarlo a código.
+        </p>
+        <p>
+          Mi terreno es <strong>PHP</strong>, sobre todo con <strong>Symfony</strong>. También me muevo
+          con soltura en frontend, bases de datos y todo lo que haga falta para sacar un proyecto
+          adelante. He pasado años trabajando con <strong>Drupal</strong>, así que sé convivir con
+          proyectos heredados y mantenerlos vivos.
+        </p>
+        <p>
+          Desde 2023 compagino el código con el papel de <strong>Tech Lead</strong>: organizo al equipo,
+          hablo directamente con cliente y acompaño a quienes están empezando. Disfruto explicando el
+          porqué de las cosas y viendo cómo la gente del equipo va ganando confianza.
+        </p>
+        <p>
+          Últimamente me tiene bastante enganchado la <strong>IA aplicada al desarrollo</strong>:
+          uso asistentes y agentes (Claude, OpenCode, prompt engineering) para refactorizar y
+          optimizar código, y me divierte probar todo lo nuevo que va saliendo.
+        </p>
+        <p>
+          Fuera de la pantalla me pierden la <strong>tecnología de consumo</strong> (móviles, relojes,
+          consolas), el <strong>cine</strong>, el <strong>Barça</strong> y la <strong>Fórmula 1</strong>.
+          Si quieres hablar de desarrollo, de IA o de cualquiera de esos temas, escríbeme y lo comentamos.
+        </p>
+      </div>
+    </section>
+
+    <!-- CONTACTO -->
+    <section class="section section--contact" id="contacto" aria-labelledby="contacto-title">
+      <div class="section__head" data-reveal>
+        <span class="section__index">02</span>
+        <h2 class="section__title" id="contacto-title">Contacto</h2>
+      </div>
+
+      <p class="contact__lead" data-reveal>
+        ¿Tienes un proyecto de desarrollo en marcha o necesitas a alguien que lo construya o lo mantenga?
+        Cuéntame qué necesitas —backend, aplicaciones web con PHP y Symfony, evolutivos o mantenimiento—
+        y te respondo lo antes posible.
+      </p>
+
+      <div class="contact__list" data-reveal>
+        <a class="contact__item" href="mailto:desarrollo@cristianluque.com">
+          <span class="contact__icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24"><path fill="currentColor" d="M4 4h16a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2Zm8 7L4.2 6.2A1 1 0 0 0 4 6.4V18h16V6.4a1 1 0 0 0-.2-.2L12 11Zm0-2.2L19.6 5.6a1 1 0 0 0-.3 0H4.7a1 1 0 0 0-.3 0L12 8.8Z"/></svg>
+          </span>
+          <span class="contact__body">
+            <span class="contact__label">Email</span>
+            <span class="contact__value">desarrollo@cristianluque.com</span>
+          </span>
+        </a>
+
+        <a class="contact__item" href="tel:+34684014771">
+          <span class="contact__icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24"><path fill="currentColor" d="M6.6 2h3a1 1 0 0 1 1 .8l.8 4a1 1 0 0 1-.3.9L9.4 9.4a13 13 0 0 0 5.2 5.2l1.7-1.7a1 1 0 0 1 .9-.3l4 .8a1 1 0 0 1 .8 1v3a2 2 0 0 1-2.2 2A17.8 17.8 0 0 1 4 4.2A2 2 0 0 1 6.6 2Z"/></svg>
+          </span>
+          <span class="contact__body">
+            <span class="contact__label">Teléfono</span>
+            <span class="contact__value">684 014 771</span>
+          </span>
+        </a>
+
+        <div class="contact__item">
+          <span class="contact__icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24"><path fill="currentColor" d="M12 2a7 7 0 0 0-7 7c0 5 7 13 7 13s7-8 7-13a7 7 0 0 0-7-7Zm0 9.5A2.5 2.5 0 1 1 12 6.5a2.5 2.5 0 0 1 0 5Z"/></svg>
+          </span>
+          <span class="contact__body">
+            <span class="contact__label">Ubicación</span>
+            <span class="contact__value">Madrid, España</span>
+          </span>
+        </div>
+      </div>
+    </section>
+
+    <!-- EXPERIENCIA -->
+    <section class="section" id="experiencia" aria-labelledby="experiencia-title">
+      <div class="section__head" data-reveal>
+        <span class="section__index">03</span>
+        <h2 class="section__title" id="experiencia-title">Experiencia</h2>
+      </div>
+
+      <ol class="timeline">
+        <li class="timeline__item" data-reveal>
+          <div class="timeline__dot" aria-hidden="true"></div>
+          <p class="timeline__date">2023 — actualidad</p>
+          <h3 class="timeline__role">Tech Lead PHP</h3>
+          <p class="timeline__place">Agencia digital · Madrid, España</p>
+          <ul class="timeline__list">
+            <li>Gestión de un equipo de programadores y organización de recursos.</li>
+            <li>Análisis de peticiones, reuniones y contacto directo con cliente.</li>
+            <li>Tutorización de becarios y programadores junior.</li>
+            <li>Desarrollo de aplicaciones web con Symfony y PHP moderno.</li>
+            <li>Integración de IA generativa y agentes en el flujo de desarrollo (Claude, OpenCode, prompt engineering y automatización) para optimización de código y refactorizaciones.</li>
+          </ul>
+        </li>
+
+        <li class="timeline__item" data-reveal>
+          <div class="timeline__dot" aria-hidden="true"></div>
+          <p class="timeline__date">2019 — 2022</p>
+          <h3 class="timeline__role">Senior Backend Developer &amp; Project Manager</h3>
+          <p class="timeline__place">Consultora web · Madrid, España</p>
+          <ul class="timeline__list">
+            <li>Desarrollo backend en Drupal 7, 8 y 9. Soporte puntual en desarrollo frontend.</li>
+            <li>Project Management y gestión técnica de proyectos.</li>
+            <li>Especialista en Google Tag Manager, Google Analytics y GA4.</li>
+            <li>Uso de PowerBI a nivel básico y automatizaciones con Selenium en Python (nivel básico-intermedio).</li>
+          </ul>
+        </li>
+
+        <li class="timeline__item" data-reveal>
+          <div class="timeline__dot" aria-hidden="true"></div>
+          <p class="timeline__date">2019</p>
+          <h3 class="timeline__role">Senior Developer</h3>
+          <p class="timeline__place">Estudio digital · Madrid, España</p>
+          <ul class="timeline__list">
+            <li>Desarrollo web desde cero, análisis de funcionalidades y mantenimiento.</li>
+            <li>Gestión de equipo técnico y mejoras en la organización del departamento.</li>
+            <li>Proyectos en Drupal y WordPress integrados con Google Tag Manager.</li>
+            <li>Colaboración con clientes estadounidenses en entornos Linux y Mac.</li>
+          </ul>
+        </li>
+
+        <li class="timeline__item" data-reveal>
+          <div class="timeline__dot" aria-hidden="true"></div>
+          <p class="timeline__date">2016 — 2019</p>
+          <h3 class="timeline__role">Desarrollador Backend</h3>
+          <p class="timeline__place">Agencia digital · Barcelona, España</p>
+          <ul class="timeline__list">
+            <li>Desarrollo backend enfocado en Drupal 7, 8 y Symfony integrado en Drupal 8.</li>
+            <li>Implementaciones avanzadas de Google Tag Manager.</li>
+            <li>Desarrollo en PHP, JavaScript, jQuery, CSS, SCSS, HTML y MySQL utilizando Git.</li>
+            <li>Análisis de funcionalidades, desarrollo desde cero, evolutivos y mantenimiento.</li>
+            <li>Gestión de tareas con Trello, Jira y Asana en entornos Linux y Mac.</li>
+          </ul>
+        </li>
+      </ol>
+
+      <p class="note" data-reveal>
+        Por privacidad, omito deliberadamente los nombres de las empresas y de los clientes con los que he trabajado.
+        Puedo ampliar cualquier detalle en una conversación.
+      </p>
+    </section>
+
+    <!-- STACK -->
+    <section class="section" id="stack" aria-labelledby="stack-title">
+      <div class="section__head" data-reveal>
+        <span class="section__index">04</span>
+        <h2 class="section__title" id="stack-title">Stack &amp; herramientas</h2>
+      </div>
+
+      <div class="grid grid--3">
+        <article class="card" data-reveal>
+          <h3 class="card__title">Backend &amp; Lenguajes</h3>
+          <ul class="chips">
+            <li>PHP</li>
+            <li>Symfony</li>
+            <li>Drupal 7 / 8 / 9</li>
+            <li>WordPress</li>
+            <li>Silex</li>
+            <li>Python</li>
+            <li>Java</li>
+            <li>Node.js</li>
+          </ul>
+        </article>
+
+        <article class="card" data-reveal>
+          <h3 class="card__title">Frontend &amp; Bases de datos</h3>
+          <ul class="chips">
+            <li>JavaScript</li>
+            <li>jQuery</li>
+            <li>ReactJS</li>
+            <li>CSS3</li>
+            <li>SCSS</li>
+            <li>HTML5</li>
+            <li>MySQL</li>
+            <li>PL/SQL</li>
+          </ul>
+        </article>
+
+        <article class="card" data-reveal>
+          <h3 class="card__title">IA, analítica &amp; herramientas</h3>
+          <ul class="chips">
+            <li>Claude &amp; OpenCode</li>
+            <li>Prompt engineering</li>
+            <li>Google Tag Manager</li>
+            <li>Google Analytics / GA4</li>
+            <li>PowerBI</li>
+            <li>Git</li>
+            <li>Jira</li>
+            <li>Asana</li>
+            <li>Trello</li>
+          </ul>
+        </article>
+      </div>
+
+      <div class="languages" data-reveal>
+        <h3 class="languages__title">Idiomas</h3>
+        <ul class="chips">
+          <li>Español <span class="chips__hint">nativo</span></li>
+          <li>Catalán <span class="chips__hint">nativo</span></li>
+          <li>Inglés <span class="chips__hint">B1</span></li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- FORMACIÓN -->
+    <section class="section" id="formacion" aria-labelledby="formacion-title">
+      <div class="section__head" data-reveal>
+        <span class="section__index">05</span>
+        <h2 class="section__title" id="formacion-title">Formación</h2>
+      </div>
+
+      <div class="grid grid--2">
+        <article class="card card--edu" data-reveal>
+          <h3 class="card__title">Desarrollo de Aplicaciones Multiplataforma</h3>
+          <p class="card__sub">Institut Marianao · Sant Boi de Llobregat, España</p>
+          <p class="card__text">
+            Java, C, PHP, CSS3, HTML5, Python, MySQL y PL/SQL.
+            Pendiente de presentar el proyecto final.
+          </p>
+        </article>
+
+        <article class="card card--edu" data-reveal>
+          <h3 class="card__title">Bachillerato (Humanidades)</h3>
+          <p class="card__sub">C.E. Joan XXIII · L'Hospitalet, España · 2008 — 2010</p>
+          <p class="card__text">
+            ESO cursada en el mismo centro (2004 — 2008).
+          </p>
+        </article>
+      </div>
+
+      <div class="cert" data-reveal>
+        <h3 class="cert__title">Certificaciones</h3>
+        <p class="cert__text">Curso de Analítica Web y Plan de Marketing Digital (Criteria).</p>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <p class="site-footer__copy">© <span id="year">2026</span> Cristian Luque Núñez</p>
+    <p class="site-footer__note">Hecha a mano con HTML, CSS y un poco de JavaScript.</p>
+    <a class="site-footer__top" href="#top">Volver arriba ↑</a>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>

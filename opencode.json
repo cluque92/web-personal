@@ -1,0 +1,14 @@
+{
+  "mcp": {
+    "servers": {
+      "supabase": {
+        "type": "local",
+        "command": [
+          "npx",
+          "-y",
+          "@modelcontextprotocol/server-supabase"
+        ]
+      }
+    }
+  }
+}
