@@ -1,155 +1,123 @@
-/* ==========================================================================
-   Cristian Luque Núñez — interacciones de la web personal
-   Sin dependencias. Tema, menú móvil, scrollspy, animaciones y año.
-   ========================================================================== */
+/* ============================================================
+   Navegación, tema y progreso de lectura
+   ============================================================ */
 (function () {
   "use strict";
 
-  var root = document.documentElement;
-  var STORAGE_KEY = "cln-theme";
+  const THEME_KEY = "cln-theme";
+  const root = document.documentElement;
+  const toggles = Array.prototype.slice.call(document.querySelectorAll("[data-theme-toggle]"));
+  const metaTheme = document.querySelector('meta[name="theme-color"]');
+  const systemDark = window.matchMedia("(prefers-color-scheme: dark)");
 
-  /* --- Tema (oscuro por defecto) ----------------------------------------- */
-  var stored = null;
-  try { stored = localStorage.getItem(STORAGE_KEY); } catch (e) { stored = null; }
-  if (stored === "light" || stored === "dark") {
-    root.setAttribute("data-theme", stored);
+  function storedTheme() {
+    try {
+      return window.localStorage.getItem(THEME_KEY);
+    } catch (error) {
+      return null;
+    }
   }
 
-  var themeToggle = document.getElementById("themeToggle");
-  var themeColor = document.querySelector('meta[name="theme-color"]');
+  function applyTheme(theme, persist) {
+    root.setAttribute("data-theme", theme);
 
-  function syncThemeColor() {
-    if (!themeColor) return;
-    themeColor.setAttribute(
-      "content",
-      root.getAttribute("data-theme") === "light" ? "#f6f8fa" : "#0b0f14"
-    );
-  }
-  syncThemeColor();
+    if (persist) {
+      try {
+        window.localStorage.setItem(THEME_KEY, theme);
+      } catch (error) {
+        /* localStorage puede estar bloqueado */
+      }
+    }
 
-  if (themeToggle) {
-    themeToggle.addEventListener("click", function () {
-      var next = root.getAttribute("data-theme") === "light" ? "dark" : "light";
-      root.setAttribute("data-theme", next);
-      try { localStorage.setItem(STORAGE_KEY, next); } catch (e) {}
-      syncThemeColor();
-      themeToggle.setAttribute(
+    toggles.forEach(function (button) {
+      button.setAttribute(
         "aria-label",
-        next === "light" ? "Cambiar a tema oscuro" : "Cambiar a tema claro"
+        theme === "dark" ? "Cambiar a tema claro" : "Cambiar a tema oscuro"
       );
+      button.setAttribute("title", theme === "dark" ? "Tema claro" : "Tema oscuro");
+    });
+
+    if (metaTheme) {
+      metaTheme.setAttribute("content", theme === "dark" ? "#141126" : "#f3f0fa");
+    }
+  }
+
+  applyTheme(storedTheme() || (systemDark.matches ? "dark" : "light"), false);
+
+  toggles.forEach(function (button) {
+    button.addEventListener("click", function () {
+      applyTheme(root.getAttribute("data-theme") === "dark" ? "light" : "dark", true);
+    });
+  });
+
+  if (systemDark.addEventListener) {
+    systemDark.addEventListener("change", function (event) {
+      if (!storedTheme()) applyTheme(event.matches ? "dark" : "light", false);
     });
   }
 
-  /* --- Menú móvil -------------------------------------------------------- */
-  var navToggle = document.getElementById("navToggle");
-  var navMenu = document.getElementById("navMenu");
+  /* Progreso de lectura en el rail */
+  const progress = document.querySelector("[data-scroll-progress]");
+  let ticking = false;
 
-  function closeMenu() {
-    if (!navMenu || !navToggle) return;
-    navMenu.classList.remove("is-open");
-    navToggle.setAttribute("aria-expanded", "false");
-    navToggle.setAttribute("aria-label", "Abrir menú");
+  function updateProgress() {
+    const scrollable = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+    const value = scrollable > 0 ? Math.min(1, Math.max(0, window.scrollY / scrollable)) : 0;
+    if (progress) progress.style.width = (value * 100).toFixed(2) + "%";
+    ticking = false;
   }
-
-  if (navToggle && navMenu) {
-    navToggle.addEventListener("click", function () {
-      var open = navMenu.classList.toggle("is-open");
-      navToggle.setAttribute("aria-expanded", String(open));
-      navToggle.setAttribute("aria-label", open ? "Cerrar menú" : "Abrir menú");
-    });
-
-    navMenu.addEventListener("click", function (event) {
-      if (event.target.closest("a")) closeMenu();
-    });
-
-    document.addEventListener("click", function (event) {
-      if (!navMenu.classList.contains("is-open")) return;
-      if (!navMenu.contains(event.target) && !navToggle.contains(event.target)) closeMenu();
-    });
-
-    document.addEventListener("keydown", function (event) {
-      if (event.key === "Escape") closeMenu();
-    });
-
-    window.addEventListener("resize", function () {
-      if (window.innerWidth > 720) closeMenu();
-    });
-  }
-
-  /* --- Sombra del header y scrollspy ------------------------------------ */
-  var header = document.querySelector(".site-header");
-  var sections = Array.prototype.slice.call(document.querySelectorAll("main section[id]"));
-  var navLinks = Array.prototype.slice.call(document.querySelectorAll('.nav__menu a[href^="#"]'));
 
   function onScroll() {
-    if (header) header.classList.toggle("is-scrolled", window.scrollY > 10);
-
-    var offset = window.scrollY + 140;
-    var current = "";
-    sections.forEach(function (section) {
-      if (section.offsetTop <= offset) current = section.id;
-    });
-
-    navLinks.forEach(function (link) {
-      var isActive = link.getAttribute("href") === "#" + current;
-      link.classList.toggle("is-active", isActive);
-      if (isActive) {
-        link.setAttribute("aria-current", "true");
-      } else {
-        link.removeAttribute("aria-current");
-      }
-    });
-  }
-
-  var ticking = false;
-  window.addEventListener("scroll", function () {
     if (ticking) return;
     ticking = true;
-    window.requestAnimationFrame(function () {
-      onScroll();
-      revealInView();
-      ticking = false;
+    window.requestAnimationFrame(updateProgress);
+  }
+
+  window.addEventListener("scroll", onScroll, { passive: true });
+  window.addEventListener("resize", updateProgress);
+  updateProgress();
+
+  /* Sección activa en la navegación */
+  const navLinks = Array.prototype.slice.call(document.querySelectorAll(".topbar__nav a"));
+  const sections = navLinks
+    .map(function (link) {
+      const id = link.getAttribute("href");
+      return id && id.charAt(0) === "#" ? document.querySelector(id) : null;
+    })
+    .filter(Boolean);
+
+  if ("IntersectionObserver" in window && sections.length) {
+    const visibleSections = new Map();
+
+    const observer = new IntersectionObserver(
+      function (entries) {
+        entries.forEach(function (entry) {
+          visibleSections.set(entry.target, entry.isIntersecting ? entry.intersectionRatio : 0);
+        });
+
+        let active = null;
+        let best = 0;
+        visibleSections.forEach(function (ratio, section) {
+          if (ratio > best) {
+            best = ratio;
+            active = section;
+          }
+        });
+
+        navLinks.forEach(function (link) {
+          const target = link.getAttribute("href");
+          link.setAttribute("aria-current", active && target === "#" + active.id ? "true" : "false");
+        });
+      },
+      { rootMargin: "-20% 0px -55% 0px", threshold: [0, 0.15, 0.35, 0.6] }
+    );
+
+    sections.forEach(function (section) {
+      observer.observe(section);
     });
-  }, { passive: true });
-  onScroll();
-
-  /* --- Animación de aparición ------------------------------------------- */
-  var revealItems = Array.prototype.slice.call(document.querySelectorAll("[data-reveal]"));
-  var reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-
-  function revealAll() {
-    revealItems.forEach(function (item) { item.classList.add("is-visible"); });
   }
 
-  /* Red de seguridad: revela lo que ya está en pantalla aunque el observer no
-     llegue a dispararse (pestañas en segundo plano, navegadores antiguos...). */
-  function revealInView() {
-    var limit = window.innerHeight * 0.94;
-    revealItems.forEach(function (item) {
-      if (item.classList.contains("is-visible")) return;
-      if (item.getBoundingClientRect().top < limit) item.classList.add("is-visible");
-    });
-  }
-
-  if (reduceMotion || !("IntersectionObserver" in window)) {
-    revealAll();
-  } else {
-    var observer = new IntersectionObserver(function (entries) {
-      entries.forEach(function (entry) {
-        if (entry.isIntersecting) {
-          entry.target.classList.add("is-visible");
-          observer.unobserve(entry.target);
-        }
-      });
-    }, { rootMargin: "0px 0px -8% 0px", threshold: 0.12 });
-
-    revealItems.forEach(function (item) { observer.observe(item); });
-
-    revealInView();
-    window.addEventListener("load", revealInView);
-  }
-
-  /* --- Año dinámico ------------------------------------------------------ */
-  var year = document.getElementById("year");
+  /* Año del pie */
+  const year = document.getElementById("year");
   if (year) year.textContent = String(new Date().getFullYear());
 })();

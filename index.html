@@ -1,347 +1,693 @@
 <!DOCTYPE html>
-<html lang="es" data-theme="dark">
+<html lang="es" data-theme="light">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <title>Cristian Luque Núñez · Desarrollador Backend</title>
-  <meta name="description" content="Web personal de Cristian Luque Núñez, desarrollador backend senior con experiencia en PHP, Symfony y Drupal. Trayectoria, stack técnico y contacto." />
+  <title>Cristian Luque Núñez · Backend, juegos y apps</title>
+  <meta name="description" content="Web personal de Cristian Luque Núñez, desarrollador backend y tech lead en Madrid. Desarrollo de software web: PHP, Symfony, Drupal, web y apps con IA, y demos interactivas de sus proyectos." />
   <meta name="author" content="Cristian Luque Núñez" />
-  <meta name="theme-color" content="#0b0f14" />
+  <meta name="theme-color" content="#f3f0fa" />
 
-  <!-- Open Graph -->
   <meta property="og:type" content="profile" />
   <meta property="og:locale" content="es_ES" />
-  <meta property="og:title" content="Cristian Luque Núñez · Desarrollador Backend" />
-  <meta property="og:description" content="Desarrollador Backend · Tech Lead · Project Manager. Trayectoria, stack técnico y contacto." />
-  <meta property="og:image" content="img/foto-perfil-400.jpg" />
+  <meta property="og:title" content="Cristian Luque Núñez · Backend, juegos y apps" />
+  <meta property="og:description" content="Desarrollo de software backend y web, con PHP, Symfony, Drupal y apps con IA. Cinco proyectos que puedes probar en el navegador." />
+  <meta property="og:image" content="img/foto-perfil-400.webp" />
 
-  <!-- Favicon con monograma -->
-  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%230b0f14'/%3E%3Ctext x='32' y='43' font-family='monospace' font-size='30' font-weight='700' fill='%2334d399' text-anchor='middle'%3ECL%3C/text%3E%3C/svg%3E" />
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='16' fill='%231b1733'/%3E%3Ctext x='32' y='42' font-family='Arial,sans-serif' font-size='24' font-weight='800' letter-spacing='-1' fill='%23ff5b5b' text-anchor='middle'%3ECLN%3C/text%3E%3C/svg%3E" />
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wdth,wght@12..96,75..100,200..800&family=Newsreader:ital,opsz,wght@0,6..72,300..700;1,6..72,300..700&display=swap" rel="stylesheet" />
 
   <link rel="stylesheet" href="css/styles.css" />
-  <script>document.documentElement.classList.add("js");</script>
+  <script>
+    (function () {
+      document.documentElement.classList.add("js");
+      try {
+        var saved = localStorage.getItem("cln-theme");
+        var theme = saved || (window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light");
+        document.documentElement.setAttribute("data-theme", theme);
+      } catch (error) {
+        document.documentElement.setAttribute("data-theme", "light");
+      }
+    })();
+  </script>
 </head>
 <body>
   <a class="skip-link" href="#contenido">Saltar al contenido</a>
 
-  <header class="site-header" id="top">
-    <nav class="nav" aria-label="Navegación principal">
-      <a class="nav__brand" href="#top">
-        <span class="nav__mark" aria-hidden="true">CL</span>
-        <span class="nav__name">Cristian Luque</span>
-      </a>
+  <header class="topbar">
+    <a class="brand" href="#inicio" aria-label="Volver al inicio">
+      <span class="brand__mark" aria-hidden="true">CLN</span>
+      <span class="brand__name">Cristian Luque</span>
+    </a>
 
-      <button class="nav__toggle" id="navToggle" aria-expanded="false" aria-controls="navMenu" aria-label="Abrir menú">
-        <span class="nav__toggle-bars" aria-hidden="true"></span>
-      </button>
-
-      <ul class="nav__menu" id="navMenu">
-        <li><a href="#sobre-mi">Sobre mí</a></li>
-        <li><a href="#contacto">Contacto</a></li>
-        <li><a href="#experiencia">Experiencia</a></li>
-        <li><a href="#stack">Stack</a></li>
-        <li><a href="#formacion">Formación</a></li>
-        <li>
-          <button class="theme-toggle" id="themeToggle" aria-label="Cambiar tema" title="Cambiar tema">
-            <svg class="theme-toggle__icon theme-toggle__icon--moon" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M21.64 13a1 1 0 0 0-1.05-.14a8 8 0 0 1-3.37.73a8.15 8.15 0 0 1-8.14-8.1a8.59 8.59 0 0 1 .25-2A1 1 0 0 0 8 2.36a10.14 10.14 0 1 0 14 11.69a1 1 0 0 0-.36-1.05Z"/></svg>
-            <svg class="theme-toggle__icon theme-toggle__icon--sun" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 17a5 5 0 1 0 0-10a5 5 0 0 0 0 10Zm0 2a1 1 0 0 1 1 1v1a1 1 0 1 1-2 0v-1a1 1 0 0 1 1-1Zm0-18a1 1 0 0 1 1 1v1a1 1 0 1 1-2 0V2a1 1 0 0 1 1-1Zm10 10a1 1 0 0 1-1 1h-1a1 1 0 1 1 0-2h1a1 1 0 0 1 1 1ZM4 12a1 1 0 0 1-1 1H2a1 1 0 1 1 0-2h1a1 1 0 0 1 1 1Zm14.66-6.66a1 1 0 0 1 0 1.41l-.71.71a1 1 0 1 1-1.41-1.41l.7-.71a1 1 0 0 1 1.42 0ZM7.46 16.54a1 1 0 0 1 0 1.41l-.7.71a1 1 0 0 1-1.42-1.41l.71-.71a1 1 0 0 1 1.41 0Zm11.2 2.12a1 1 0 0 1-1.41 0l-.71-.71a1 1 0 0 1 1.41-1.41l.71.7a1 1 0 0 1 0 1.42ZM7.46 7.46a1 1 0 0 1-1.41 0l-.71-.7a1 1 0 0 1 1.42-1.42l.7.71a1 1 0 0 1 0 1.41Z"/></svg>
-          </button>
-        </li>
-      </ul>
+    <nav class="topbar__nav" aria-label="Navegación principal">
+      <a href="#proyectos">Proyectos</a>
+      <a href="#sobre-mi">Sobre mí</a>
+      <a href="#trayectoria">Trayectoria</a>
+      <a href="#stack">Stack</a>
+      <a href="#contacto">Contacto</a>
     </nav>
+
+    <button class="theme-toggle" type="button" data-theme-toggle aria-label="Cambiar a tema oscuro" title="Cambiar tema">
+      <svg class="theme-toggle__sun" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4.2" fill="currentColor"/><path d="M12 2.5v2M12 19.5v2M2.5 12h2M19.5 12h2M5.2 5.2l1.4 1.4M17.4 17.4l1.4 1.4M18.8 5.2l-1.4 1.4M6.6 17.4l-1.4 1.4" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
+      <svg class="theme-toggle__moon" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M20.6 14.2A8.6 8.6 0 0 1 9.8 3.4a8.9 8.9 0 1 0 10.8 10.8Z"/></svg>
+    </button>
+
+    <div class="topbar__progress" aria-hidden="true"><span data-scroll-progress></span></div>
   </header>
 
   <main id="contenido">
-    <!-- HERO -->
-    <section class="hero" aria-labelledby="hero-title">
-      <div class="hero__inner">
-        <div class="hero__text" data-reveal>
-          <h1 class="visually-hidden">Cristian Luque Núñez, desarrollador backend</h1>
-          <p class="hero__eyebrow">Hola, encantado</p>
-          <p class="hero__role" id="hero-title">Desarrollador Backend · Tech Lead · Project Manager</p>
-          <p class="hero__lead">
-            Llevo desde 2016 construyendo y manteniendo aplicaciones web del lado del servidor.
-            Trabajo con PHP y Symfony, me muevo bien con bases de datos y cada vez me apoyo más
-            en herramientas de IA en el día a día.
-          </p>
-          <div class="hero__actions">
-            <a class="btn btn--primary" href="#contacto">Contactar</a>
-            <a class="btn btn--ghost" href="#experiencia">Ver mi trayectoria</a>
-          </div>
-          <p class="hero__meta">
-            <span class="dot" aria-hidden="true"></span> Madrid, España
-          </p>
+    <section class="hero" id="inicio" aria-labelledby="hero-title">
+      <div class="hero__copy">
+        <p class="hero__hello"><span aria-hidden="true"></span>Hola, soy Cristian. Madrid.</p>
+
+        <h1 class="hero__title" id="hero-title">
+          <span>Construyo cosas</span>
+          <span>que funcionan.</span>
+          <span class="hero__title-play">Y otras que</span>
+          <span class="hero__title-play">solo divierten.</span>
+        </h1>
+
+        <p class="hero__lead">
+          Desarrollo software backend y web, y soy tech lead en Madrid. PHP, Symfony y
+          equipos durante el día; webs, apps e IA cuando cierro el portátil.
+        </p>
+
+        <div class="hero__actions">
+          <a class="button button--solid" href="#proyectos">Probar las demos</a>
+          <a class="button button--line" href="#contacto">Hablemos</a>
         </div>
 
-        <div class="hero__photo" data-reveal>
-          <div class="hero__photo-frame">
-            <picture>
-              <source srcset="img/foto-perfil.webp" type="image/webp" />
-              <img src="img/foto-perfil.jpg" width="600" height="600"
-                   alt="Retrato de Cristian Luque Núñez" loading="eager" decoding="async" />
-            </picture>
-          </div>
+
+      </div>
+
+      <figure class="hero__portrait">
+        <div class="hero__portrait-wrap">
+          <img src="img/foto-perfil.webp" width="600" height="600"
+               alt="Retrato de Cristian Luque Núñez" loading="eager" decoding="async" />
+          <span class="hero__sticker" aria-hidden="true">hola</span>
         </div>
+        <figcaption>Madrid, 2026</figcaption>
+      </figure>
+
+      <div class="hero__meta">
+        <dl class="hero__facts">
+          <div class="hero__fact hero__fact--sun">
+            <dt>Base</dt>
+            <dd>Madrid</dd>
+          </div>
+          <div class="hero__fact hero__fact--mint">
+            <dt>Rol</dt>
+            <dd>Tech Lead</dd>
+          </div>
+          <div class="hero__fact hero__fact--sky">
+            <dt>Desde</dt>
+            <dd>2016</dd>
+          </div>
+          <div class="hero__fact hero__fact--coral">
+            <dt>Ahora</dt>
+            <dd>Web y apps + IA</dd>
+          </div>
+        </dl>
+
+        <p class="hero__off">Fuera de la oficina: cine, Barça y F1.</p>
       </div>
     </section>
 
-    <!-- SOBRE MI -->
-    <section class="section" id="sobre-mi" aria-labelledby="sobre-mi-title">
-      <div class="section__head" data-reveal>
-        <span class="section__index">01</span>
-        <h2 class="section__title" id="sobre-mi-title">Sobre mí</h2>
+    <section class="projects" id="proyectos" aria-labelledby="projects-title">
+      <header class="section-head">
+        <p class="section-head__label section-head__label--coral">Proyectos</p>
+        <div class="section-head__body">
+          <h2 class="section-title" id="projects-title">Cosas que puedes probar.</h2>
+          <p class="section-lead">
+            Cuatro proyectos en un mismo tablero: apps, juegos y experimentos.
+            Nada es una captura; cada pestaña funciona aquí mismo.
+          </p>
+        </div>
+      </header>
+
+      <div class="slider" data-slider>
+        <div class="slider__bar">
+          <div class="slider__tabs" role="tablist" aria-label="Elegir proyecto">
+            <button type="button" role="tab" id="tab-movies" aria-controls="panel-movies" aria-selected="true" data-slider-tab="0">Random Movies</button>
+            <button type="button" role="tab" id="tab-nido" aria-controls="panel-nido" aria-selected="false" data-slider-tab="1">Nido</button>
+            <button type="button" role="tab" id="tab-country" aria-controls="panel-country" aria-selected="false" data-slider-tab="2">Profe Country</button>
+            <button type="button" role="tab" id="tab-waste" aria-controls="panel-waste" aria-selected="false" data-slider-tab="3">Wasteland Legends</button>
+          </div>
+          <div class="slider__arrows">
+            <button type="button" data-slider-prev aria-label="Proyecto anterior">←</button>
+            <button type="button" data-slider-next aria-label="Proyecto siguiente">→</button>
+          </div>
+        </div>
+
+        <div class="slider__viewport" data-slider-viewport>
+          <div class="slider__track" data-slider-track>
+            <div class="slider__slide slide--movies" id="panel-movies" role="tabpanel" aria-labelledby="tab-movies" data-slider-slide>
+              <article class="slide-card">
+                <div class="slide-card__intro">
+                  <p class="project__type">Android, 2026</p>
+                  <h3 class="project__title">Random Movies</h3>
+                  <p class="project__desc">
+                    Qué película ver esta noche. Filtras por género y plataforma, pulsas
+                    «Sorpréndeme» y la app elige una película del catálogo español de TMDB,
+                    con su ficha y dónde verla.
+                  </p>
+                  <ul class="project__tags">
+                    <li>Kotlin</li>
+                    <li>Jetpack Compose</li>
+                    <li>TMDB</li>
+                    <li>Room</li>
+                    <li>Hilt</li>
+                  </ul>
+                  <a class="project__link" href="https://github.com/cluque92/random-movies" target="_blank" rel="noopener noreferrer">
+                    Ver repositorio<span class="sr-only"> (se abre en una pestaña nueva)</span>
+                  </a>
+                  <p class="project__note">
+                    Demo con un catálogo local de ejemplo. La app real consulta TMDB y excluye
+                    lo que ya has visto.
+                  </p>
+                </div>
+                <div class="slide-card__demo">
+<div class="demo demo--movies" data-movies>
+          <div class="demo__bar">
+            <span>Demo interactiva</span>
+            <span>Kotlin · Jetpack Compose</span>
+          </div>
+
+          <div class="movies-stage">
+            <div class="movies-stage__halo" aria-hidden="true"></div>
+            <div class="phone phone--movies">
+              <div class="phone__speaker" aria-hidden="true"></div>
+              <div class="phone__screen movies-app">
+                <div class="movies-app__view movies-app__home" data-movies-view="home">
+                  <header class="movies-app__bar">
+                    <span class="movies-app__brand">Random Movies</span>
+                    <button class="movies-app__textbtn" type="button" data-movies-open-filters>Filtros</button>
+                  </header>
+
+                  <div class="movies-app__center">
+                    <h4>¿Qué vemos esta noche?</h4>
+                    <p data-movies-summary>Todos los géneros. Cualquier plataforma.</p>
+                    <button class="movies-app__roll" type="button" data-movies-roll>
+                      <span>Sorpréndeme esta noche</span>
+                    </button>
+                  </div>
+                </div>
+
+                <div class="movies-app__view movies-app__result" data-movies-view="result" hidden>
+                  <header class="movies-app__bar movies-app__bar--result">
+                    <button class="movies-app__textbtn" type="button" data-movies-back>Atrás</button>
+                    <span class="movies-app__title">Tu película de esta noche</span>
+                    <span class="movies-app__spacer" aria-hidden="true"></span>
+                  </header>
+
+                  <div class="movies-app__scroll" data-movies-result></div>
+
+                  <div class="movies-app__bottom">
+                    <button class="movies-app__secondary" type="button" data-movies-back>Volver</button>
+                    <button class="movies-app__primary" type="button" data-movies-again>Otra</button>
+                  </div>
+                </div>
+
+                <div class="movies-app__sheet" data-movies-sheet hidden>
+                  <div class="movies-app__sheet-card">
+                    <header>
+                      <strong>Filtros</strong>
+                      <button class="movies-app__textbtn" type="button" data-movies-close-filters>Cerrar</button>
+                    </header>
+
+                    <fieldset>
+                      <legend>Géneros</legend>
+                      <div class="chips" data-movies-genres></div>
+                    </fieldset>
+
+                    <fieldset>
+                      <legend>Plataformas</legend>
+                      <div class="chips" data-movies-platforms></div>
+                    </fieldset>
+
+                    <button class="movies-app__primary" type="button" data-movies-apply>Ver películas</button>
+                    <button class="movies-app__textbtn movies-app__reset" type="button" data-movies-reset>Limpiar filtros</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <p class="movies-stage__hint">Pulsa el botón, filtra o cambia de película.</p>
+          <p class="sr-only" data-movies-live aria-live="polite"></p>
+        </div>
+                </div>
+              </article>
+            </div>
+
+            <div class="slider__slide slide--nido" id="panel-nido" role="tabpanel" aria-labelledby="tab-nido" data-slider-slide aria-hidden="true">
+              <article class="slide-card">
+                <div class="slide-card__intro">
+                  <p class="project__type">Android, 2026</p>
+                  <h3 class="project__title">Nido</h3>
+                  <p class="project__desc">
+                    Recordatorios para familias con hijos: prioridades, avisos escalonados,
+                    ficha médica y escolar, y varios adultos compartiendo la misma casa.
+                    La privacidad no es un extra: los permisos van por rol.
+                  </p>
+                  <ul class="project__tags">
+                    <li>Flutter</li>
+                    <li>Riverpod</li>
+                    <li>Supabase</li>
+                    <li>Drift</li>
+                    <li>RLS</li>
+                  </ul>
+                  <a class="project__link" href="https://github.com/cluque92/tribu" target="_blank" rel="noopener noreferrer">
+                    Ver repositorio<span class="sr-only"> (se abre en una pestaña nueva)</span>
+                  </a>
+                  <p class="project__note">
+                    Demo de interfaz. La app real sincroniza con Supabase y aplica permisos
+                    por rol: admin, progenitor y cuidador.
+                  </p>
+                </div>
+                <div class="slide-card__demo">
+<div class="demo demo--nido" data-nido>
+          <div class="demo__bar">
+            <span>Demo interactiva</span>
+            <span>Flutter · Supabase</span>
+          </div>
+
+          <div class="nido-stage">
+            <div class="nido-stage__shape nido-stage__shape--one" aria-hidden="true"></div>
+            <div class="nido-stage__shape nido-stage__shape--two" aria-hidden="true"></div>
+
+            <div class="phone phone--nido">
+              <div class="phone__speaker" aria-hidden="true"></div>
+              <div class="phone__screen nido-app">
+                <header class="nido-app__bar">
+                  <div>
+                    <span class="nido-app__eyebrow">Familia</span>
+                    <h4>Casa de los Luque</h4>
+                  </div>
+                  <div class="nido-app__avatars" aria-label="Miembros de la familia">
+                    <span style="--avatar:#b36a3c">L</span>
+                    <span style="--avatar:#3e7c5a">V</span>
+                    <span style="--avatar:#2b4c7e">C</span>
+                  </div>
+                </header>
+
+                <div class="nido-app__tabs" role="tablist" aria-label="Vistas de Nido">
+                  <button type="button" role="tab" id="nido-tab-today" aria-selected="true" aria-controls="nido-panel-today" data-nido-tab="today">Hoy</button>
+                  <button type="button" role="tab" id="nido-tab-upcoming" aria-selected="false" aria-controls="nido-panel-upcoming" data-nido-tab="upcoming">Próximos</button>
+                  <button type="button" role="tab" id="nido-tab-kids" aria-selected="false" aria-controls="nido-panel-kids" data-nido-tab="kids">Hijos</button>
+                  <button type="button" role="tab" id="nido-tab-family" aria-selected="false" aria-controls="nido-panel-family" data-nido-tab="family">Familia</button>
+                </div>
+
+                <div class="nido-app__panel" id="nido-panel-today" role="tabpanel" aria-labelledby="nido-tab-today" data-nido-panel="today">
+                  <div class="nido-app__progress">
+                    <div class="nido-app__progress-top">
+                      <span>Hoy</span>
+                      <strong data-nido-progress-label>1 de 5</strong>
+                    </div>
+                    <span class="nido-app__bar"><i data-nido-progress></i></span>
+                  </div>
+                  <div class="nido-app__lanes" data-nido-lanes></div>
+                </div>
+
+                <div class="nido-app__panel" id="nido-panel-upcoming" role="tabpanel" aria-labelledby="nido-tab-upcoming" data-nido-panel="upcoming" hidden>
+                  <div class="nido-app__lanes" data-nido-upcoming></div>
+                </div>
+
+                <div class="nido-app__panel" id="nido-panel-kids" role="tabpanel" aria-labelledby="nido-tab-kids" data-nido-panel="kids" hidden>
+                  <div data-nido-kids></div>
+                </div>
+
+                <div class="nido-app__panel" id="nido-panel-family" role="tabpanel" aria-labelledby="nido-tab-family" data-nido-panel="family" hidden>
+                  <div data-nido-family></div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <p class="nido-stage__hint">Marca un recordatorio. La barra de progreso se actualiza.</p>
+          <p class="sr-only" data-nido-live aria-live="polite"></p>
+        </div>
+                </div>
+              </article>
+            </div>
+
+            <div class="slider__slide slide--country" id="panel-country" role="tabpanel" aria-labelledby="tab-country" data-slider-slide aria-hidden="true">
+              <article class="slide-card">
+                <div class="slide-card__intro">
+                  <p class="project__type">Web, 2026</p>
+                  <h3 class="project__title">Profe Country</h3>
+                  <p class="project__desc">
+                    Clases de line dance guiadas por un profe SVG articulado. Ocho bailes,
+                    modo aprender, cuenta atrás, modo espejo y progreso guardado en el navegador.
+                  </p>
+                  <ul class="project__tags">
+                    <li>JavaScript</li>
+                    <li>SVG</li>
+                    <li>Web Audio</li>
+                    <li>localStorage</li>
+                  </ul>
+                  <a class="project__link" href="https://github.com/cluque92/profe-country" target="_blank" rel="noopener noreferrer">
+                    Ver repositorio<span class="sr-only"> (se abre en una pestaña nueva)</span>
+                  </a>
+                  <p class="project__note">
+                    La demo usa el mismo personaje articulado del proyecto, con una coreografía
+                    reducida a ocho tiempos.
+                  </p>
+                </div>
+                <div class="slide-card__demo">
+<div class="demo demo--country" data-country>
+                    <div class="country">
+                      <div class="country__stage">
+                        <div class="country__spotlight" aria-hidden="true"></div>
+                        <div class="country__dancer" data-country-dancer></div>
+                        <div class="country__count" aria-hidden="true">
+                          <span data-country-count>1</span><small>/ 8</small>
+                        </div>
+                        <p class="country__move" data-country-move>Kick-ball-change</p>
+                        <div class="country__floor" aria-hidden="true"></div>
+                      </div>
+
+                      <div class="country__panel">
+                        <p class="country__song">Coreografía de prueba</p>
+                        <ol class="country__steps" data-country-steps></ol>
+                        <div class="country__controls">
+                          <button class="demo-button demo-button--accent" type="button" data-country-play>Bailar</button>
+                          <button class="demo-button" type="button" data-country-mirror aria-pressed="true">Espejo</button>
+                        </div>
+                        <p class="country__hint">Puedes pausar en cualquier momento.</p>
+                      </div>
+                    </div>
+                    <p class="sr-only" data-country-live aria-live="polite"></p>
+                  </div>
+                </div>
+              </article>
+            </div>
+
+            <div class="slider__slide slide--waste" id="panel-waste" role="tabpanel" aria-labelledby="tab-waste" data-slider-slide aria-hidden="true">
+              <article class="slide-card">
+                <div class="slide-card__intro">
+                  <p class="project__type">Prototipo, 2026</p>
+                  <h3 class="project__title">Wasteland Legends</h3>
+                  <p class="project__desc">
+                    Un RPG de mundo abierto en pixel art que estoy prototipando: mapa por
+                    celdas, sprites con anclaje real, colisiones y un pueblo que se puede
+                    recorrer.
+                  </p>
+                  <ul class="project__tags">
+                    <li>Canvas 2D</li>
+                    <li>Pixel art</li>
+                    <li>Mundo abierto</li>
+                    <li>Prototipo</li>
+                  </ul>
+                  <p class="project__status">En desarrollo</p>
+                  <p class="project__note">
+                    Los sprites de la demo son los del prototipo real. Elige un personaje
+                    para ver su ficha.
+                  </p>
+                </div>
+                <div class="slide-card__demo">
+<div class="demo demo--waste" data-waste>
+                    <div class="waste">
+                      <div class="waste__scene" aria-hidden="true">
+                        <div class="waste__sky"></div>
+                        <div class="waste__ground"></div>
+                        <img class="waste__tree" src="img/proyectos/wasteland/tree.png" alt="" />
+                        <img class="waste__barrel" src="img/proyectos/wasteland/barrel.png" alt="" />
+                        <img class="waste__stop" src="img/proyectos/wasteland/stop.png" alt="" />
+                        <img class="waste__lamp" src="img/proyectos/wasteland/lamp.png" alt="" />
+                        <img class="waste__char" data-waste-sprite src="img/proyectos/wasteland/dust-hunter.png" alt="" />
+                        <div class="waste__vignette"></div>
+                      </div>
+
+                      <div class="waste__panel">
+                        <p class="demo__label">Elige un personaje</p>
+                        <div class="waste__picker" data-waste-picker></div>
+
+                        <div class="waste__card">
+                          <p class="waste__role" data-waste-role>Exploradora</p>
+                          <h4 data-waste-name>Dust Hunter</h4>
+                          <p class="waste__desc" data-waste-desc>Rápida, curiosa y con muy pocas ganas de quedarse quieta.</p>
+                          <dl class="waste__stats" data-waste-stats></dl>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </article>
+            </div>
+          </div>
+        </div>
+
+        <div class="slider__foot">
+          <span data-slider-status>Random Movies · 1 de 4</span>
+          <div class="slider__progress" aria-hidden="true"><span data-slider-progress></span></div>
+        </div>
       </div>
-      <div class="section__body" data-reveal>
-        <p>
-          Soy <strong>desarrollador backend</strong> y llevo desde 2016 construyendo webs y aplicaciones.
-          Lo que más me gusta del oficio es resolver problemas: entender qué necesita alguien y dar
-          con la forma más limpia de llevarlo a código.
-        </p>
-        <p>
-          Mi terreno es <strong>PHP</strong>, sobre todo con <strong>Symfony</strong>. También me muevo
-          con soltura en frontend, bases de datos y todo lo que haga falta para sacar un proyecto
-          adelante. He pasado años trabajando con <strong>Drupal</strong>, así que sé convivir con
-          proyectos heredados y mantenerlos vivos.
-        </p>
-        <p>
-          Desde 2023 compagino el código con el papel de <strong>Tech Lead</strong>: organizo al equipo,
-          hablo directamente con cliente y acompaño a quienes están empezando. Disfruto explicando el
-          porqué de las cosas y viendo cómo la gente del equipo va ganando confianza.
-        </p>
-        <p>
-          Últimamente me tiene bastante enganchado la <strong>IA aplicada al desarrollo</strong>:
-          uso asistentes y agentes (Claude, OpenCode, prompt engineering) para refactorizar y
-          optimizar código, y me divierte probar todo lo nuevo que va saliendo.
-        </p>
-        <p>
-          Fuera de la pantalla me pierden la <strong>tecnología de consumo</strong> (móviles, relojes,
-          consolas), el <strong>cine</strong>, el <strong>Barça</strong> y la <strong>Fórmula 1</strong>.
-          Si quieres hablar de desarrollo, de IA o de cualquiera de esos temas, escríbeme y lo comentamos.
+    </section>
+    </section>
+
+    <!-- SOBRE MI -->
+    <section class="about" id="sobre-mi" aria-labelledby="about-title">
+      <header class="section-head">
+        <p class="section-head__label section-head__label--sun">Sobre mí</p>
+        <div class="section-head__body">
+          <h2 class="section-title" id="about-title">Backend con oficio, equipo cerca.</h2>
+        </div>
+      </header>
+
+      <div class="about__grid">
+        <div class="about__prose">
+          <p>
+            Soy <strong>desarrollador backend</strong> y llevo desde 2016 construyendo
+            webs y aplicaciones. Mi terreno es el <strong>desarrollo de software</strong>:
+            entender qué necesita cada proyecto, elegir la solución más limpia y
+            acompañarla desde la idea hasta que funciona en producción. Sé convivir con
+            proyectos heredados, mantenerlos vivos y dejar el código mejor de como lo
+            encontré.
+          </p>
+          <p>
+            Desde 2023 compagino el código con el rol de <strong>Tech Lead</strong>.
+            Organizo al equipo, hablo directamente con cliente y acompaño a quienes están
+            empezando. Disfruto explicando el porqué de las cosas y viendo cómo la gente
+            gana confianza.
+          </p>
+          <p>
+            Últimamente me tiene enganchado la <strong>IA aplicada al desarrollo</strong>.
+            Uso asistentes y agentes para refactorizar, revisar y automatizar, y pruebo
+            todo lo que sale.
+          </p>
+
+          <div class="about__play">
+            <p class="about__play-label">Fuera de la oficina</p>
+            <ul class="play-tags">
+              <li>cine</li>
+              <li>Barça</li>
+              <li>F1</li>
+              <li>tecnología de consumo</li>
+            </ul>
+          </div>
+        </div>
+
+        <aside class="about__aside">
+          <blockquote>
+            Me gusta que el código se entienda seis meses después.
+          </blockquote>
+
+          <dl class="principles">
+            <div>
+              <dt>Código que se entiende</dt>
+              <dd>Nombres claros, decisiones explicadas y menos magia de la necesaria.</dd>
+            </div>
+            <div>
+              <dt>Legado sin miedo</dt>
+              <dd>Entrar en un proyecto viejo, entenderlo y dejarlo mejor de como estaba.</dd>
+            </div>
+            <div>
+              <dt>Equipos que crecen</dt>
+              <dd>Revisar, acompañar y dar contexto en lugar de repartir tareas y desaparecer.</dd>
+            </div>
+            <div>
+              <dt>IA con criterio</dt>
+              <dd>Que acelere el trabajo sin convertir el código en una caja negra.</dd>
+            </div>
+          </dl>
+        </aside>
+      </div>
+    </section>
+
+    <!-- EXPERIENCIA -->
+    <section class="experience" id="trayectoria" aria-labelledby="experience-title">
+      <header class="section-head">
+        <p class="section-head__label section-head__label--mint">Trayectoria</p>
+        <div class="section-head__body">
+          <h2 class="section-title" id="experience-title">Dónde he estado.</h2>
+          <p class="section-lead">
+            Diez años construyendo, manteniendo y liderando proyectos web. Por privacidad,
+            omito los nombres de las empresas y de los clientes.
+          </p>
+        </div>
+      </header>
+
+      <ol class="timeline">
+        <li class="timeline__item">
+          <p class="timeline__date">2023 — actualidad</p>
+          <div class="timeline__body">
+            <h3>Tech Lead PHP</h3>
+            <p class="timeline__place">Agencia digital · Madrid, España</p>
+            <ul>
+              <li>Gestión de un equipo de programadores y organización de recursos.</li>
+              <li>Análisis de peticiones, reuniones y contacto directo con cliente.</li>
+              <li>Tutorización de becarios y programadores junior.</li>
+              <li>Desarrollo de aplicaciones web con Symfony y PHP moderno.</li>
+              <li>Integración de IA generativa y agentes en el flujo de desarrollo: Claude, OpenCode, prompt engineering y automatización.</li>
+            </ul>
+          </div>
+        </li>
+
+        <li class="timeline__item">
+          <p class="timeline__date">2019 — 2022</p>
+          <div class="timeline__body">
+            <h3>Senior Backend Developer &amp; Project Manager</h3>
+            <p class="timeline__place">Consultora web · Madrid, España</p>
+            <ul>
+              <li>Desarrollo backend en Drupal 7, 8 y 9. Soporte puntual en frontend.</li>
+              <li>Project Management y gestión técnica de proyectos.</li>
+              <li>Especialista en Google Tag Manager, Google Analytics y GA4.</li>
+              <li>Power BI a nivel básico y automatizaciones con Selenium en Python.</li>
+            </ul>
+          </div>
+        </li>
+
+        <li class="timeline__item">
+          <p class="timeline__date">2019</p>
+          <div class="timeline__body">
+            <h3>Senior Developer</h3>
+            <p class="timeline__place">Estudio digital · Madrid, España</p>
+            <ul>
+              <li>Desarrollo web desde cero, análisis de funcionalidades y mantenimiento.</li>
+              <li>Gestión de equipo técnico y mejoras en la organización del departamento.</li>
+              <li>Proyectos en Drupal y WordPress integrados con Google Tag Manager.</li>
+              <li>Colaboración con clientes estadounidenses en entornos Linux y Mac.</li>
+            </ul>
+          </div>
+        </li>
+
+        <li class="timeline__item">
+          <p class="timeline__date">2016 — 2019</p>
+          <div class="timeline__body">
+            <h3>Desarrollador Backend</h3>
+            <p class="timeline__place">Agencia digital · Barcelona, España</p>
+            <ul>
+              <li>Desarrollo backend con Drupal 7, 8 y Symfony integrado en Drupal 8.</li>
+              <li>Implementaciones avanzadas de Google Tag Manager.</li>
+              <li>PHP, JavaScript, jQuery, CSS, SCSS, HTML y MySQL con Git.</li>
+              <li>Análisis de funcionalidades, desarrollo desde cero, evolutivos y mantenimiento.</li>
+              <li>Gestión de tareas con Trello, Jira y Asana en entornos Linux y Mac.</li>
+            </ul>
+          </div>
+        </li>
+      </ol>
+    </section>
+
+    <!-- STACK -->
+    <section class="stack-section" id="stack" aria-labelledby="stack-title">
+      <header class="section-head">
+        <p class="section-head__label section-head__label--sky">Stack</p>
+        <div class="section-head__body">
+          <h2 class="section-title" id="stack-title">Con qué trabajo.</h2>
+          <p class="section-lead">
+            Herramientas que uso con regularidad, no una lista de logos. Si algo no está,
+            probablemente pueda aprenderlo.
+          </p>
+        </div>
+      </header>
+
+      <dl class="stack">
+        <div class="stack__row">
+          <dt>Backend</dt>
+          <dd>PHP, Symfony, Drupal 7/8/9, WordPress, Silex, Node.js</dd>
+        </div>
+        <div class="stack__row">
+          <dt>Datos</dt>
+          <dd>MySQL, PL/SQL</dd>
+        </div>
+        <div class="stack__row">
+          <dt>Frontend</dt>
+          <dd>JavaScript, ReactJS, jQuery, HTML5, CSS3, SCSS</dd>
+        </div>
+        <div class="stack__row">
+          <dt>IA y analítica</dt>
+          <dd>Claude, OpenCode, prompt engineering, Google Tag Manager, Google Analytics / GA4, Power BI</dd>
+        </div>
+        <div class="stack__row">
+          <dt>Gestión</dt>
+          <dd>Git, Jira, Asana, Trello</dd>
+        </div>
+        <div class="stack__row">
+          <dt>También</dt>
+          <dd>Python, Java, Selenium · formación en Desarrollo de Aplicaciones Multiplataforma</dd>
+        </div>
+        <div class="stack__row">
+          <dt>Idiomas</dt>
+          <dd>Español nativo, catalán nativo, inglés B1</dd>
+        </div>
+      </dl>
+
+      <div class="education">
+        <h3>Formación</h3>
+        <div class="education__grid">
+          <p>
+            <strong>Desarrollo de Aplicaciones Multiplataforma</strong><br />
+            Institut Marianao · Sant Boi de Llobregat. Pendiente de presentar el proyecto final.
+          </p>
+          <p>
+            <strong>Bachillerato (Humanidades)</strong><br />
+            C.E. Joan XXIII · L'Hospitalet · 2008 — 2010.
+          </p>
+        </div>
+        <p class="education__cert">
+          Certificación: Curso de Analítica Web y Plan de Marketing Digital (Criteria).
         </p>
       </div>
     </section>
 
     <!-- CONTACTO -->
-    <section class="section section--contact" id="contacto" aria-labelledby="contacto-title">
-      <div class="section__head" data-reveal>
-        <span class="section__index">02</span>
-        <h2 class="section__title" id="contacto-title">Contacto</h2>
-      </div>
+    <section class="contact" id="contacto" aria-labelledby="contact-title">
+      <div class="contact__inner">
+        <p class="contact__label">Contacto</p>
+        <h2 class="contact__title" id="contact-title">¿Construimos algo?</h2>
+        <p class="contact__lead">
+          Si tienes un proyecto en marcha, necesitas mantener algo que ya existe o
+          buscas un tech lead para el equipo, escríbeme. Respondo lo antes posible.
+        </p>
 
-      <p class="contact__lead" data-reveal>
-        ¿Tienes un proyecto de desarrollo en marcha o necesitas a alguien que lo construya o lo mantenga?
-        Cuéntame qué necesitas —backend, aplicaciones web con PHP y Symfony, evolutivos o mantenimiento—
-        y te respondo lo antes posible.
-      </p>
+        <a class="contact__email" href="mailto:desarrollo@cristianluque.com">desarrollo@cristianluque.com</a>
 
-      <div class="contact__list" data-reveal>
-        <a class="contact__item" href="mailto:desarrollo@cristianluque.com">
-          <span class="contact__icon" aria-hidden="true">
-            <svg viewBox="0 0 24 24"><path fill="currentColor" d="M4 4h16a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2Zm8 7L4.2 6.2A1 1 0 0 0 4 6.4V18h16V6.4a1 1 0 0 0-.2-.2L12 11Zm0-2.2L19.6 5.6a1 1 0 0 0-.3 0H4.7a1 1 0 0 0-.3 0L12 8.8Z"/></svg>
-          </span>
-          <span class="contact__body">
-            <span class="contact__label">Email</span>
-            <span class="contact__value">desarrollo@cristianluque.com</span>
-          </span>
-        </a>
-
-        <a class="contact__item" href="tel:+34684014771">
-          <span class="contact__icon" aria-hidden="true">
-            <svg viewBox="0 0 24 24"><path fill="currentColor" d="M6.6 2h3a1 1 0 0 1 1 .8l.8 4a1 1 0 0 1-.3.9L9.4 9.4a13 13 0 0 0 5.2 5.2l1.7-1.7a1 1 0 0 1 .9-.3l4 .8a1 1 0 0 1 .8 1v3a2 2 0 0 1-2.2 2A17.8 17.8 0 0 1 4 4.2A2 2 0 0 1 6.6 2Z"/></svg>
-          </span>
-          <span class="contact__body">
-            <span class="contact__label">Teléfono</span>
-            <span class="contact__value">684 014 771</span>
-          </span>
-        </a>
-
-        <div class="contact__item">
-          <span class="contact__icon" aria-hidden="true">
-            <svg viewBox="0 0 24 24"><path fill="currentColor" d="M12 2a7 7 0 0 0-7 7c0 5 7 13 7 13s7-8 7-13a7 7 0 0 0-7-7Zm0 9.5A2.5 2.5 0 1 1 12 6.5a2.5 2.5 0 0 1 0 5Z"/></svg>
-          </span>
-          <span class="contact__body">
-            <span class="contact__label">Ubicación</span>
-            <span class="contact__value">Madrid, España</span>
-          </span>
+        <div class="contact__row">
+          <a href="tel:+34684014771">684 014 771</a>
+          <span>Madrid, España</span>
+          <span>Desde 2016</span>
         </div>
-      </div>
-    </section>
 
-    <!-- EXPERIENCIA -->
-    <section class="section" id="experiencia" aria-labelledby="experiencia-title">
-      <div class="section__head" data-reveal>
-        <span class="section__index">03</span>
-        <h2 class="section__title" id="experiencia-title">Experiencia</h2>
-      </div>
-
-      <ol class="timeline">
-        <li class="timeline__item" data-reveal>
-          <div class="timeline__dot" aria-hidden="true"></div>
-          <p class="timeline__date">2023 — actualidad</p>
-          <h3 class="timeline__role">Tech Lead PHP</h3>
-          <p class="timeline__place">Agencia digital · Madrid, España</p>
-          <ul class="timeline__list">
-            <li>Gestión de un equipo de programadores y organización de recursos.</li>
-            <li>Análisis de peticiones, reuniones y contacto directo con cliente.</li>
-            <li>Tutorización de becarios y programadores junior.</li>
-            <li>Desarrollo de aplicaciones web con Symfony y PHP moderno.</li>
-            <li>Integración de IA generativa y agentes en el flujo de desarrollo (Claude, OpenCode, prompt engineering y automatización) para optimización de código y refactorizaciones.</li>
-          </ul>
-        </li>
-
-        <li class="timeline__item" data-reveal>
-          <div class="timeline__dot" aria-hidden="true"></div>
-          <p class="timeline__date">2019 — 2022</p>
-          <h3 class="timeline__role">Senior Backend Developer &amp; Project Manager</h3>
-          <p class="timeline__place">Consultora web · Madrid, España</p>
-          <ul class="timeline__list">
-            <li>Desarrollo backend en Drupal 7, 8 y 9. Soporte puntual en desarrollo frontend.</li>
-            <li>Project Management y gestión técnica de proyectos.</li>
-            <li>Especialista en Google Tag Manager, Google Analytics y GA4.</li>
-            <li>Uso de PowerBI a nivel básico y automatizaciones con Selenium en Python (nivel básico-intermedio).</li>
-          </ul>
-        </li>
-
-        <li class="timeline__item" data-reveal>
-          <div class="timeline__dot" aria-hidden="true"></div>
-          <p class="timeline__date">2019</p>
-          <h3 class="timeline__role">Senior Developer</h3>
-          <p class="timeline__place">Estudio digital · Madrid, España</p>
-          <ul class="timeline__list">
-            <li>Desarrollo web desde cero, análisis de funcionalidades y mantenimiento.</li>
-            <li>Gestión de equipo técnico y mejoras en la organización del departamento.</li>
-            <li>Proyectos en Drupal y WordPress integrados con Google Tag Manager.</li>
-            <li>Colaboración con clientes estadounidenses en entornos Linux y Mac.</li>
-          </ul>
-        </li>
-
-        <li class="timeline__item" data-reveal>
-          <div class="timeline__dot" aria-hidden="true"></div>
-          <p class="timeline__date">2016 — 2019</p>
-          <h3 class="timeline__role">Desarrollador Backend</h3>
-          <p class="timeline__place">Agencia digital · Barcelona, España</p>
-          <ul class="timeline__list">
-            <li>Desarrollo backend enfocado en Drupal 7, 8 y Symfony integrado en Drupal 8.</li>
-            <li>Implementaciones avanzadas de Google Tag Manager.</li>
-            <li>Desarrollo en PHP, JavaScript, jQuery, CSS, SCSS, HTML y MySQL utilizando Git.</li>
-            <li>Análisis de funcionalidades, desarrollo desde cero, evolutivos y mantenimiento.</li>
-            <li>Gestión de tareas con Trello, Jira y Asana en entornos Linux y Mac.</li>
-          </ul>
-        </li>
-      </ol>
-
-      <p class="note" data-reveal>
-        Por privacidad, omito deliberadamente los nombres de las empresas y de los clientes con los que he trabajado.
-        Puedo ampliar cualquier detalle en una conversación.
-      </p>
-    </section>
-
-    <!-- STACK -->
-    <section class="section" id="stack" aria-labelledby="stack-title">
-      <div class="section__head" data-reveal>
-        <span class="section__index">04</span>
-        <h2 class="section__title" id="stack-title">Stack &amp; herramientas</h2>
-      </div>
-
-      <div class="grid grid--3">
-        <article class="card" data-reveal>
-          <h3 class="card__title">Backend &amp; Lenguajes</h3>
-          <ul class="chips">
-            <li>PHP</li>
-            <li>Symfony</li>
-            <li>Drupal 7 / 8 / 9</li>
-            <li>WordPress</li>
-            <li>Silex</li>
-            <li>Python</li>
-            <li>Java</li>
-            <li>Node.js</li>
-          </ul>
-        </article>
-
-        <article class="card" data-reveal>
-          <h3 class="card__title">Frontend &amp; Bases de datos</h3>
-          <ul class="chips">
-            <li>JavaScript</li>
-            <li>jQuery</li>
-            <li>ReactJS</li>
-            <li>CSS3</li>
-            <li>SCSS</li>
-            <li>HTML5</li>
-            <li>MySQL</li>
-            <li>PL/SQL</li>
-          </ul>
-        </article>
-
-        <article class="card" data-reveal>
-          <h3 class="card__title">IA, analítica &amp; herramientas</h3>
-          <ul class="chips">
-            <li>Claude &amp; OpenCode</li>
-            <li>Prompt engineering</li>
-            <li>Google Tag Manager</li>
-            <li>Google Analytics / GA4</li>
-            <li>PowerBI</li>
-            <li>Git</li>
-            <li>Jira</li>
-            <li>Asana</li>
-            <li>Trello</li>
-          </ul>
-        </article>
-      </div>
-
-      <div class="languages" data-reveal>
-        <h3 class="languages__title">Idiomas</h3>
-        <ul class="chips">
-          <li>Español <span class="chips__hint">nativo</span></li>
-          <li>Catalán <span class="chips__hint">nativo</span></li>
-          <li>Inglés <span class="chips__hint">B1</span></li>
-        </ul>
-      </div>
-    </section>
-
-    <!-- FORMACIÓN -->
-    <section class="section" id="formacion" aria-labelledby="formacion-title">
-      <div class="section__head" data-reveal>
-        <span class="section__index">05</span>
-        <h2 class="section__title" id="formacion-title">Formación</h2>
-      </div>
-
-      <div class="grid grid--2">
-        <article class="card card--edu" data-reveal>
-          <h3 class="card__title">Desarrollo de Aplicaciones Multiplataforma</h3>
-          <p class="card__sub">Institut Marianao · Sant Boi de Llobregat, España</p>
-          <p class="card__text">
-            Java, C, PHP, CSS3, HTML5, Python, MySQL y PL/SQL.
-            Pendiente de presentar el proyecto final.
-          </p>
-        </article>
-
-        <article class="card card--edu" data-reveal>
-          <h3 class="card__title">Bachillerato (Humanidades)</h3>
-          <p class="card__sub">C.E. Joan XXIII · L'Hospitalet, España · 2008 — 2010</p>
-          <p class="card__text">
-            ESO cursada en el mismo centro (2004 — 2008).
-          </p>
-        </article>
-      </div>
-
-      <div class="cert" data-reveal>
-        <h3 class="cert__title">Certificaciones</h3>
-        <p class="cert__text">Curso de Analítica Web y Plan de Marketing Digital (Criteria).</p>
+        <p class="contact__sticker" aria-hidden="true">Respondo rápido</p>
       </div>
     </section>
   </main>
 
   <footer class="site-footer">
-    <p class="site-footer__copy">© <span id="year">2026</span> Cristian Luque Núñez</p>
-    <p class="site-footer__note">Hecha a mano con HTML, CSS y un poco de JavaScript.</p>
-    <a class="site-footer__top" href="#top">Volver arriba ↑</a>
+    <p>© <span id="year">2026</span> Cristian Luque Núñez</p>
+    <p>Hecha a mano con HTML, CSS y JavaScript. Sin frameworks.</p>
+    <a class="site-footer__top" href="#inicio">Volver arriba ↑</a>
   </footer>
 
-  <script src="js/main.js"></script>
+  <script src="js/vendor/country-moves.js" defer></script>
+  <script src="js/vendor/country-dancer.js" defer></script>
+  <script src="js/projects.js" defer></script>
+  <script src="js/main.js" defer></script>
 </body>
 </html>
